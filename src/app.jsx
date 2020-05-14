@@ -16,38 +16,6 @@ class App extends React.Component {
           <Main />
         </ThemeProvider>
       </>
-      // <React.Fragment>
-      //   <CssBaseline />
-      //   <AppBar>
-      //     <Toolbar>
-      //       <Typography variant="h4">
-      //         Joel Wukusick
-      //     </Typography>
-      //     </Toolbar>
-      //   </AppBar>
-      //   <main>
-      //     <Container maxWidth="md">
-      //       <Grid container spacing={4}>
-      //         {data.map((app) => (
-      //           <div>
-      //             test
-      //             <Card >
-      //               <CardMedia
-      //                 image={app.imageThumbURL}
-      //                 title={`${app.name} screenshot`}
-      //               />
-      //               <CardContent>
-      //                 <Typography gutterBottom variant='h5' component='h2'>
-      //                   {app.name}
-      //                 </Typography>
-      //               </CardContent>
-      //             </Card>
-      //           </div>
-      //         ))}
-      //       </Grid >
-      //     </Container>
-      //   </main>
-      // </React.Fragment>
     )
   }
 }

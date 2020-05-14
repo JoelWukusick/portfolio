@@ -3,24 +3,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import { Button } from '@material-ui/core';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles((theme) => ({
 
   title: {
     flexGrow: 1,
     fontWeight: '100',
-    // display: 'none',
-    // [theme.breakpoints.up('sm')]: {
-    //   display: 'block',
-    // },
   },
-  menuItem: {
-    marginRight: theme.spacing(0),
-    [theme.breakpoints.up('sm')]: {
-      marginRight: theme.spacing(3),
-    }
+  right: {
+    paddingRight: theme.spacing(3)
   }
 }));
 
@@ -33,12 +27,12 @@ export default function ButtonAppBar() {
         <Typography variant="h4" className={classes.title}>
           Joel Wukusick
           </Typography>
-        <Button className={classes.menuItem} onClick={event => event.preventDefault} color="inherit">
-          GitHub
-          </Button>
-        <Button className={classes.menuItem} onClick={event => event.preventDefault} color="inherit">
-          LinkedIn
-          </Button>
+        <Button onClick={event => event.preventDefault} color="inherit">
+          <GitHubIcon />
+        </Button>
+        <Button className={classes.right} onClick={event => event.preventDefault} color="inherit">
+          <LinkedInIcon />
+        </Button>
       </Toolbar>
     </AppBar>
   )
