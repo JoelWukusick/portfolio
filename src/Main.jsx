@@ -1,7 +1,7 @@
 import React from 'react';
 import ProjectCard from './ProjectCard.jsx';
 import data from './data.js';
-import { Grid, Container } from '@material-ui/core';
+import { Grid, Container, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -16,11 +16,13 @@ export default function Main() {
 
   return (
     <Container>
-      <Grid className={classes.grid} container spacing={8}>
-        {data.map((project, index) =>
-          <ProjectCard data={project} key={index} />
-        )}
-      </Grid>
+      <Box py={4}>
+        <Grid className={classes.grid} container spacing={8}>
+          {data.map((project, index) =>
+            <ProjectCard data={project} key={index} />
+          )}
+        </Grid>
+      </Box>
     </Container>
   )
 }

@@ -41,10 +41,10 @@ export default function AlbumCard({ data }) {
           </CardActionArea>
         </div>
         <CardActions>
-          <Button size="small" color="primary">
+          <Button size="small" color="primary" target="_blank" href={data.repository}>
             Code
           </Button>
-          <Button size="small" color="primary">
+          <Button size="small" color="primary" target="_blank" href={data.deployedURL}>
             Demo
           </Button>
         </CardActions>
