@@ -23,7 +23,7 @@ export default function ButtonAppBar() {
   const classes = useStyles();
 
   return (
-    <AppBar position="fixed">
+    <AppBar >
       <Toolbar >
         <Typography variant="h4" className={classes.title} >
           Joel Wukusick

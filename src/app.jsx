@@ -4,6 +4,7 @@ import Header from './Header.jsx';
 import { CssBaseline } from '@material-ui/core';
 import theme from './theme.js';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { ContextProvider } from './Context.jsx';
 import Main from './Main.jsx';
 
 class App extends React.Component {
@@ -11,9 +12,11 @@ class App extends React.Component {
     return (
       <>
         <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Header />
-          <Main />
+          <ContextProvider>
+            <CssBaseline />
+            <Header />
+            <Main />
+          </ContextProvider>
         </ThemeProvider>
       </>
     )
