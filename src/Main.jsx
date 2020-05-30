@@ -22,9 +22,8 @@ export default function Main() {
   console.log(routes);
 
   return (
-    <BrowserRouter>
-      <Container>
-        <Box py={4}>
+    <Container>
+      <BrowserRouter>
           <Route path='/' exact>
             <Grid className={classes.grid} container spacing={8}>
               {data.map((project, index) =>
@@ -32,9 +31,8 @@ export default function Main() {
               )}
             </Grid>
           </Route>
-        {routes}
-        </Box>
-      </Container>
-    </BrowserRouter>
+          {routes}
+      </BrowserRouter>
+    </Container>
   )
 }

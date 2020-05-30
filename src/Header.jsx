@@ -23,7 +23,7 @@ export default function ButtonAppBar() {
   const classes = useStyles();
 
   return (
-    <AppBar >
+    <AppBar position='static'>
       <Toolbar >
         <Typography variant="h4" className={classes.title} >
           Joel Wukusick
