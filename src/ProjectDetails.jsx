@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import theme from './theme.js';
-import { Button, Box, useMediaQuery } from '@material-ui/core';
+import { Button, Box, useMediaQuery, Typography } from '@material-ui/core';
 import Context from './Context.jsx'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Link } from "react-router-dom";
@@ -28,10 +28,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '50px',
   },
   right: {
-    right: 30,
+    right: 0,
   },
   left: {
-    left: 30,
+    left: 0,
   }
 }));
 
@@ -43,15 +43,16 @@ export default function ProjectDetails({ project }) {
   return (
     <>
       <Box py={2}>
-        <Button size='medium' onClick={() => { setPage('/') }} component={Link} to={'/'}><ArrowBackIcon fontSize='medium' />back</Button>
+        <Typography align='center' variant='h3'>
+          {project.name}
+        </Typography>
       </Box>
-
       <Carousel
         infiniteLoop
         showIndicators={mobile}
         showStatus={false}
         showThumbs={false}
-        renderArrowPrev={(onClickHandler, hasPrev, label) =>
+        renderArrowPrev={(onClickHandler, hasPrev) =>
           hasPrev && (
             <Button className={`${classes.navButton} ${classes.left}`} aria-hidden='true' type='button' onClick={onClickHandler} >
               <NavigateBeforeIcon className={classes.icon} />
@@ -67,24 +68,26 @@ export default function ProjectDetails({ project }) {
         }>
         {project.images.map(image => <CarouselImage image={image} name='name' />)}
       </Carousel>
-      <h2>
-        {project.name}
-      </h2>
-      <p>
-        {project.description}
-      </p>
-      <h3>
-        Technologies Used
-      </h3>
-      <p>
-        {project.technologies}
-      </p>
+      <Box py={4}>
+        <Typography gutterBottom>
+          {project.description}
+        </Typography>
+        <Typography variant='h5' gutterBottom>
+          Technologies Used
+        </Typography>
+        <Typography gutterBottom>
+          {project.technologies}
+        </Typography>
+      </Box>
       <Button color="primary" target="_blank" href={project.repository}>
         Code
-      </Button>
+        </Button>
       <Button color="primary" target="_blank" href={project.deployedURL}>
         Demo
-      </Button>
+        </Button>
+      <Box py={2}>
+        <Button size='medium' onClick={() => { setPage('/') }} component={Link} to={'/'}><ArrowBackIcon fontSize='medium' />back</Button>
+      </Box>
     </>
   )
 }

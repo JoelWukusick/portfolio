@@ -5,12 +5,16 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   root: {
     position: 'relative',
+
     width: '100%',
     height: '100%'
   },
   aspectRatioContainer: {
     width: '100%',
-    paddingBottom: '50%',
+    paddingBottom: 'calc(50% - 80px)',
+    [theme.breakpoints.down('sm')]: {
+      paddingBottom: '50%'
+    },
     position: 'relative',
     alignItems: 'center',
     justifyContent: 'center',
@@ -22,6 +26,10 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     left: 0,
     objectFit: 'contain',
+    padding: '0 80px',
+    [theme.breakpoints.down('sm')]: {
+      padding: 0
+    },
     width: '100%',
     heigth: '100%',
     maxHeight: '100%',
@@ -33,8 +41,9 @@ export default function CarouselImage({ image, name }) {
   const classes = useStyles();
 
   return (
-      <div className={classes.aspectRatioContainer}>
-        <img className={classes.image} src={image} alt={name} />
-      </div>
+
+    <div className={classes.aspectRatioContainer}>
+      <img className={classes.image} src={image} alt={name} />
+    </div>
   )
 }
