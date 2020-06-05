@@ -9,7 +9,11 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-    maxWidth: '400px'
+    maxWidth: '400px',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    borderColor: theme.palette.grey['300'],
+    borderRadius: 0
   },
   cardMedia: {
     verticalAlign: 'top',
@@ -19,6 +23,12 @@ const useStyles = makeStyles(theme => ({
     verticalAlign: 'top',
     flexGrow: 1,
   },
+  title: {
+    fontWeight: 400,
+  },
+  description: {
+    fontWeight: 200,
+  }
 }))
 
 export default function AlbumCard({ data }) {
@@ -27,28 +37,28 @@ export default function AlbumCard({ data }) {
 
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <Card className={classes.card} key={data.name}>
+      <Card className={classes.card} key={data.name} elevation={0}>
         <div className={classes.stretch}>
           <CardActionArea onClick={() => setPage(`/${data.name}`)} component={Link} to={`/${data.name}`}>
             <CardMedia
               className={classes.cardMedia}
               image={data.imageThumbURL} />
             <CardContent >
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography className={classes.title}>
                 {data.name}
               </Typography>
-              <Typography>
-                {data.description}
+              <Typography className={classes.description}>
+                {data.blurb}
               </Typography>
             </CardContent>
           </CardActionArea>
         </div>
         <CardActions>
-          <Button size="small" color="primary" target="_blank" href={data.repository}>
-            Code
-          </Button>
           <Button size="small" color="primary" target="_blank" href={data.deployedURL}>
             Demo
+          </Button>
+          <Button size="small" color="primary" target="_blank" href={data.repository}>
+            Code
           </Button>
         </CardActions>
       </Card>

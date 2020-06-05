@@ -1,4 +1,5 @@
 src/data.js
+server/emailConfig.js
 
 # Logs
 logs

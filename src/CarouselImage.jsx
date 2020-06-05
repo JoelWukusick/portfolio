@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   },
   aspectRatioContainer: {
     width: '100%',
-    paddingBottom: 'calc(50% - 80px)',
+    paddingBottom: 'calc(50% - 70px)',
     [theme.breakpoints.down('sm')]: {
       paddingBottom: '50%'
     },
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     left: 0,
     objectFit: 'contain',
-    padding: '0 80px',
+    padding: '0 70px',
     [theme.breakpoints.down('sm')]: {
       padding: 0
     },

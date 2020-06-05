@@ -1,43 +1,79 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import Context from './Context.jsx'
+import MobileMenu from './MobileMenu.jsx'
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import { Button } from '@material-ui/core';
+import { Button, Container, useMediaQuery, Tooltip, Typography, Toolbar, AppBar } from '@material-ui/core';
+import { Link } from "react-router-dom";
+import theme from './theme.jsx';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import MailIcon from '@material-ui/icons/Mail';
+import InfoIcon from '@material-ui/icons/Info';
 
 const useStyles = makeStyles((theme) => ({
+  appBar: {
+    borderStyle: 'solid',
+    borderWidth: '0 0 1px 0',
+    borderColor: theme.palette.grey['300'],
+  },
   title: {
     flexGrow: 1,
-    fontWeight: '100',
-    margin: theme.spacing(1)
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+    fontFamily: 'EB Garamond',
+    fontSize: '22pt',
+    textDecoration: 'none',
+    outline: 'none',
+    color: theme.palette.text.secondary,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '18pt',
+    },
   },
-  right: {
-    paddingRight: theme.spacing(2)
+  linkButton: {
+    fontSize: '18pt',
+    color: theme.palette.text.secondary,
   }
 }));
 
-export default function ButtonAppBar() {
+export default function Header() {
   const classes = useStyles();
+  const mobile = useMediaQuery(theme.breakpoints.down('xs'));
+  const { setPage } = useContext(Context);
 
   return (
-    <AppBar position='static'>
-      <Toolbar >
-        <Typography variant="h4" className={classes.title} >
-          Joel Wukusick
+    <AppBar className={classes.appBar} position='sticky' color='inherit' elevation={0}>
+      <Container>
+        <Toolbar disableGutters>
+          <Typography variant="h4" className={classes.title} onClick={() => setPage(`/`)} component={Link} to={`/`}>
+            Joel Wukusick
           </Typography>
-        <Button onClick={event => event.preventDefault} color="inherit" target="_blank" href='https://github.com/JoelWukusick'>
-          <GitHubIcon />
-        </Button>
-        <Button onClick={event => event.preventDefault} color="inherit" target="_blank" href='https://www.linkedin.com/in/joel-w/'>
-          <LinkedInIcon />
-        </Button>
-        <Button className={classes.right} onClick={event => event.preventDefault} color="inherit" >
-          <MailIcon />
-        </Button>
-      </Toolbar>
+          {mobile ? <MobileMenu /> : (
+            <>
+              <Tooltip title='about me' arrow>
+                <Button onClick={event => event.preventDefault} color="inherit" onClick={() => setPage(`/about`)} component={Link} to={`/about`}>
+                  <InfoIcon className={classes.linkButton} />
+                </Button>
+              </Tooltip>
+              <Tooltip title='LinkedIn' arrow>
+                <Button onClick={event => event.preventDefault} color="inherit" href='https://www.linkedin.com/in/joel-w/'>
+                  <LinkedInIcon className={classes.linkButton} />
+                </Button>
+              </Tooltip>
+              <Tooltip title='GitHub' arrow>
+                <Button onClick={event => event.preventDefault} color="inherit" href='https://github.com/JoelWukusick'>
+                  <GitHubIcon className={classes.linkButton} />
+                </Button>
+              </Tooltip>
+              <Tooltip title='contact me' arrow>
+                <Button onClick={event => event.preventDefault} color="inherit" onClick={() => setPage(`/contact`)} component={Link} to={`/contact`} >
+                  <MailIcon className={classes.linkButton} />
+                </Button>
+              </Tooltip>
+            </>
+          )
+          }
+        </Toolbar>
+      </Container>
     </AppBar>
   )
 }
