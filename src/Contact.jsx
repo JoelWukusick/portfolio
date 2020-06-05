@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import BackButton from './BackButton.jsx';
 import { TextField, Grid, Button, Container, Box } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Context from './Context.jsx'
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
@@ -31,14 +31,21 @@ export default function Contact() {
     let data = { name, email, message };
     axios({
       method: 'post',
-      url: '/email',
+      url: '/contact',
       data: data,
       json: true
     })
       .then(res => {
-        console.log(res)
+        alert('Thanks for reaching out! I will reply as soon as possible.');
+        setPage('/');
+        return <Redirect to={{ pathname: '/' }} />
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        alert(`Unable to sent message. ${err}`);
+        console.log(err);
+        setPage('/');
+        return <Redirect to={{ pathname: '/' }} />
+      });
   }
 
   const validateEmail = () => {

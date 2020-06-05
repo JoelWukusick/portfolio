@@ -17,7 +17,10 @@ const useStyles = makeStyles(theme => ({
   hero: {
     fontFamily: 'Montserrat',
     fontWeight: 200,
-    fontSize: '18pt'
+    fontSize: '16pt',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '12pt',
+    },
   }
 }))
 
