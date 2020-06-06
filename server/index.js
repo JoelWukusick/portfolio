@@ -18,8 +18,8 @@ transporter.verify(function (error, success) {
   }
 });
 
-app.use(express.static('dist'))
-  .use(bodyParser.json());
+app.use(bodyParser.json());
+app.use(express.static('dist'));
 
 app.post('/contact', (req, res) => {
   let mailOptions = {
