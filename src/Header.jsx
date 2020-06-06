@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import Context from './Context.jsx'
 import MobileMenu from './MobileMenu.jsx'
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: theme.palette.grey['300'],
   },
   title: {
+    letterSpacing: 1.5,
     flexGrow: 1,
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),

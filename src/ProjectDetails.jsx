@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Box, Typography } from '@material-ui/core';
-import Context from './Context.jsx';
+import { Button, Box, Typography, useMediaQuery } from '@material-ui/core';
+import theme from './theme.jsx';
 import { Carousel } from "react-responsive-carousel";
 import './carousel.css';
 import CarouselImage from './CarouselImage.jsx';
@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ProjectDetails({ project }) {
-  const { setPage } = useContext(Context);
   const classes = useStyles();
+  const small = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <>
@@ -65,7 +65,7 @@ export default function ProjectDetails({ project }) {
           {project.images.map(image => <CarouselImage image={image} name='name' />)}
         </Carousel>
       </Box>
-      <Box py={4}>
+      <Box py={4} px={small ? 0 : 10}>
         <Typography variant='h6' >
           {project.name}
         </Typography>

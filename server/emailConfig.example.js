@@ -1,4 +1,7 @@
 module.exports = {
   user: '',
-  pass: ''
+  pass: '',
+  service: '',
+  foreward: 'where to send the email',
+  from: ''
 }

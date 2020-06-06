@@ -17,9 +17,10 @@ const useStyles = makeStyles(theme => ({
   hero: {
     fontFamily: 'Montserrat',
     fontWeight: 200,
-    fontSize: '16pt',
+    fontSize: '22pt',
+    lineHeight: 1.2,
     [theme.breakpoints.down('sm')]: {
-      fontSize: '12pt',
+      fontSize: '18pt',
     },
   }
 }))
@@ -35,9 +36,10 @@ export default function Main() {
     <>
       <Container>
         <Route path='/' exact>
-          <Box pt={4} px={mobile ? 4 : 12}>
-            <Typography className={classes.hero} align='center'>
-              HI! I'M A FULL STACK WEB DEVELOPER. CHECK OUT SOME EXAMPLES OF MY WORK!
+          <Box pt={4} >
+            <Typography className={classes.hero} align='left'>
+              {/* HI! I'M A FULL STACK WEB DEVELOPER. CHECK OUT SOME EXAMPLES OF MY WORK! */}
+  Hi! I'm a full stack {mobile ? <br /> : null} web developer. <br />Check out some {mobile ? <br /> : null}examples of my work!
           </Typography>
           </Box>
           <Grid className={classes.grid} container spacing={4}>
