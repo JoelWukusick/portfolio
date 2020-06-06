@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import Context from './Context.jsx';
-import MobileMenu from './MobileMenu.jsx';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Container, useMediaQuery, Tooltip, Typography, Toolbar, AppBar } from '@material-ui/core';
 import { Link } from "react-router-dom";
@@ -9,6 +8,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import MailIcon from '@material-ui/icons/Mail';
 import InfoIcon from '@material-ui/icons/Info';
+import MobileMenu from './MobileMenu.jsx';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
