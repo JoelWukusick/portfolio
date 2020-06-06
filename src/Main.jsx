@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {lazy} from 'react';
 import ProjectCard from './ProjectCard.jsx';
 import data from './data.js';
 import { Grid, Container, Typography, Box, useMediaQuery } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import theme from './theme.jsx';
-import ProjectDetails from './ProjectDetails.jsx';
-import AboutMe from './AboutMe.jsx';
-import Contact from './Contact.jsx';
 import { Route } from "react-router-dom";
+
+const AboutMe = lazy(() => import('./AboutMe.jsx'));
+const Contact = lazy(() => import('./Contact.jsx'));
+const ProjectDetails = lazy(() => import('./ProjectDetails.jsx'));
+
 
 const useStyles = makeStyles(theme => ({
   grid: {

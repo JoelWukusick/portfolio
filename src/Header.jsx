@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import Context from './Context.jsx'
-import MobileMenu from './MobileMenu.jsx'
+import Context from './Context.jsx';
+import MobileMenu from './MobileMenu.jsx';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Container, useMediaQuery, Tooltip, Typography, Toolbar, AppBar } from '@material-ui/core';
 import { Link } from "react-router-dom";

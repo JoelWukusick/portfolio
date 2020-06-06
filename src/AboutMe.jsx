@@ -1,7 +1,7 @@
 import React from 'react';
 import BackButton from './BackButton.jsx';
 import { Grid, Typography, useMediaQuery, Box } from '@material-ui/core';
-import theme from './theme.jsx';
+import theme from './theme.jsx';zz
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
