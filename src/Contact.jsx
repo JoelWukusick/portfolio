@@ -50,7 +50,7 @@ export default function Contact() {
       data: data,
       json: true
     })
-      .then(res => {
+      .then(() => {
         setLoading(false);
         alert('Thanks for reaching out! I will reply as soon as possible.');
         clearForm();
