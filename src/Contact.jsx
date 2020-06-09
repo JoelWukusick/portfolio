@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import BackButton from './BackButton.jsx';
 import { TextField, Grid, Button, Container, Box, CircularProgress } from '@material-ui/core';
 import { Link, Redirect } from 'react-router-dom';
-import Context from './Context.jsx'
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 
@@ -30,7 +29,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function Contact() {
-  const { setPage } = useContext(Context);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -56,7 +54,6 @@ export default function Contact() {
         setLoading(false);
         alert('Thanks for reaching out! I will reply as soon as possible.');
         clearForm();
-        setPage('/');
         setRedirect(true);
       })
       .catch(err => {
@@ -64,7 +61,6 @@ export default function Contact() {
         clearForm();
         alert(`Unable to sent message. ${err}`);
         console.log(err);
-        setPage('/');
         setRedirect(true);
       });
   }
@@ -130,7 +126,7 @@ export default function Contact() {
               </Grid>
               <Grid item xs={12} >
                 <div className={classes.buttons}>
-                  <Button color='primary' className={classes.button} onClick={() => { setPage('/') }} component={Link} to={'/'}>
+                  <Button color='primary' className={classes.button} component={Link} to={'/'}>
                     Cancel
                   </Button>
                   <div className={classes.wrapper}>

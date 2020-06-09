@@ -19,7 +19,7 @@ transporter.verify(function (error, success) {
 });
 
 app.use(bodyParser.json());
-app.use(express.static('dist'));
+app.use(['/about', '/contact', '/Tempo', '/Light-panel controller', '/Portfolio', '/'], express.static('dist'));
 
 app.post('/contact', (req, res) => {
   let mailOptions = {

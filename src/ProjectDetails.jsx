@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.contrastText,
     backgroundColor: theme.palette.text.disabled,
     outline: 0,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('xs')]: {
       display: 'none',
     },
   },
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProjectDetails({ project }) {
   const classes = useStyles();
-  const small = useMediaQuery(theme.breakpoints.down('sm'));
+  const small = useMediaQuery(theme.breakpoints.down('xs'));
 
   return (
     <>

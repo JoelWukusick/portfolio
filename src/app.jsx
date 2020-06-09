@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { CssBaseline } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { ContextProvider } from './Context.jsx';
 import { BrowserRouter } from "react-router-dom";
 import Main from './Main.jsx';
 import Header from './Header.jsx';
@@ -14,11 +13,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <ScrollToTop />
-        <ContextProvider>
           <CssBaseline />
           <Header />
           <Main />
-        </ContextProvider>
       </BrowserRouter>
     </ThemeProvider>
   )

@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import Context from './Context.jsx';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Container, useMediaQuery, Tooltip, Typography, Toolbar, AppBar } from '@material-ui/core';
 import { Link } from "react-router-dom";
@@ -39,19 +38,18 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
   const classes = useStyles();
   const mobile = useMediaQuery(theme.breakpoints.down('xs'));
-  const { setPage } = useContext(Context);
 
   return (
     <AppBar className={classes.appBar} position='sticky' color='inherit' elevation={0}>
       <Container>
         <Toolbar disableGutters>
-          <Typography variant="h4" className={classes.title} onClick={() => setPage(`/`)} component={Link} to={`/`}>
+          <Typography variant="h4" className={classes.title} component={Link} to={`/`}>
             Joel Wukusick
           </Typography>
           {mobile ? <MobileMenu /> : (
             <>
               <Tooltip title='about me' arrow>
-                <Button onClick={event => event.preventDefault} color="inherit" onClick={() => setPage(`/about`)} component={Link} to={`/about`}>
+                <Button onClick={event => event.preventDefault} color="inherit" component={Link} to={`/about`}>
                   <InfoIcon className={classes.linkButton} />
                 </Button>
               </Tooltip>
@@ -66,7 +64,7 @@ export default function Header() {
                 </Button>
               </Tooltip>
               <Tooltip title='contact me' arrow>
-                <Button onClick={event => event.preventDefault} color="inherit" onClick={() => setPage(`/contact`)} component={Link} to={`/contact`} >
+                <Button onClick={event => event.preventDefault} color="inherit" component={Link} to={`/contact`} >
                   <MailIcon className={classes.linkButton} />
                 </Button>
               </Tooltip>
