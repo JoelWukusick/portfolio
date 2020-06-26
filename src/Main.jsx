@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Main() {
   const classes = useStyles();
-  const mobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const mobile = useMediaQuery(theme.breakpoints.down('xs'));
   const routes = data.map(project => {
     return (<Route path={`/${project.name}`} exact render={props => <ProjectDetails project={project} />} />)
   })
@@ -51,7 +51,7 @@ export default function Main() {
         <Route path='/about'>
           <AboutMe />
         </Route>
-        <Route path='/contact'>
+        <Route path='/Contact'>
           <Contact />
         </Route>
         {routes}

@@ -84,9 +84,10 @@ export default function ProjectDetails({ project }) {
         <ul className={classes.ul}>
           {project.technologies.map(tech => <li>{tech}</li>)}
         </ul>
-        <Button color="primary" target="_blank" href={project.deployedURL}>
-          Demo
-        </Button>
+        {project.deployedURL ?
+          <Button color="primary" target="_blank" href={project.deployedURL}>
+            Demo
+        </Button> : null}
         <Button color="primary" target="_blank" href={project.repository}>
           Code
         </Button>

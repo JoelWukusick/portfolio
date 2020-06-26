@@ -52,9 +52,10 @@ export default function AlbumCard({ data }) {
           </CardActionArea>
         </div>
         <CardActions>
-          <Button size="small" color="primary" target="_blank" href={data.deployedURL}>
-            Demo
-          </Button>
+          {data.deployedURL ?
+            <Button size="small" color="primary" target="_blank" href={data.deployedURL}>
+              Demo
+            </Button> : null}
           <Button size="small" color="primary" target="_blank" href={data.repository}>
             Code
           </Button>

@@ -64,7 +64,7 @@ export default function Header() {
                 </Button>
               </Tooltip>
               <Tooltip title='contact me' arrow>
-                <Button onClick={event => event.preventDefault} color="inherit" component={Link} to={`/contact`} >
+                <Button onClick={event => event.preventDefault} color="inherit" component={Link} to={`/Contact`} >
                   <MailIcon className={classes.linkButton} />
                 </Button>
               </Tooltip>
